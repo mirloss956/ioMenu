@@ -1,12 +1,30 @@
-# hw6261118
+# Café Life 點餐系統
 
-A SwiftUI application project.
+Café Life 是以 SwiftUI 製作的咖啡館行動點餐示範應用程式。使用者可瀏覽菜單、客製化商品、管理購物車、完成結帳，並查看或再次購買歷史訂單。
 
-## Requirements
+## 專案功能
 
-- Xcode
-- iOS Simulator or a compatible iOS device
+- 首頁顯示營業資訊、最低消費、內用／外帶選擇與桌號設定。
+- 菜單依咖啡、茶飲特調、輕食、甜點與季節限定分類，支援商品搜尋。
+- 商品可設定必選或選填規格，例如尺寸、甜度、冰塊、加料及特殊需求；同時驗證售完與每單限購數量。
+- 購物車可調整數量、編輯品項、清空商品與套用優惠碼。
+- 結帳支援立即或預約取餐、LINE Pay／信用卡／匯款、電子發票／公司統編／手機載具／捐贈愛心碼，以及訂單備註。
+- 訂單頁會顯示訂單與付款狀態、訂單明細，並支援再次購買。
+- 「我的」頁可在本機儲存常用訂購人姓名與手機號碼。
 
-## Run
+## 技術
 
-Open the project in Xcode, select a destination, then build and run the `hw6261118` target.
+- Swift
+- SwiftUI
+- 使用 `ObservableObject` 與 `@EnvironmentObject` 管理應用程式狀態
+- 使用 `@AppStorage` 儲存常用訂購人資料
+
+## 資料說明
+
+目前所有商品、優惠碼與訂單資料皆為記憶體中的示意資料，方便展示點餐流程；重新啟動 App 後，購物車與新建立的訂單不會保留。
+
+## 執行方式
+
+1. 使用 Xcode 開啟專案。
+2. 選擇 iOS 模擬器或已連接的裝置。
+3. 執行 `hw6261118` target。
