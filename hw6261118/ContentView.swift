@@ -222,29 +222,85 @@ enum Catalog {
         ])
     ]
 
+    static let toastGroups: [SpecGroup] = [
+        SpecGroup(id: "t-bake", name: "烘烤程度", minSel: 1, maxSel: 1, options: [
+            SpecOption(id: "tb-light", name: "微烤鬆軟"),
+            SpecOption(id: "tb-crisp", name: "金黃酥脆")
+        ]),
+        SpecGroup(id: "t-egg", name: "蛋熟度", minSel: 0, maxSel: 1, options: [
+            SpecOption(id: "te-sunny", name: "太陽半熟蛋"),
+            SpecOption(id: "te-well", name: "全熟荷包蛋")
+        ])
+    ]
+
+    static let pastaGroups: [SpecGroup] = [
+        SpecGroup(id: "pas-spicy", name: "辣度", minSel: 1, maxSel: 1, options: [
+            SpecOption(id: "psp-none", name: "不辣"),
+            SpecOption(id: "psp-mild", name: "微辣"),
+            SpecOption(id: "psp-hot", name: "大辣")
+        ]),
+        SpecGroup(id: "pas-extra", name: "加購配料", minSel: 0, maxSel: 2, options: [
+            SpecOption(id: "pe-cheese", name: "焗烤乳酪絲", price: 30),
+            SpecOption(id: "pe-bacon", name: "加倍厚切培根", price: 35)
+        ])
+    ]
+
+    static let sparklingGroups: [SpecGroup] = [
+        SpecGroup(id: "spk-ice", name: "冰塊", minSel: 1, maxSel: 1, options: [
+            SpecOption(id: "spki-norm", name: "正常冰（最佳氣泡感）"),
+            SpecOption(id: "spki-less", name: "少冰")
+        ]),
+        SpecGroup(id: "spk-sweet", name: "甜度", minSel: 1, maxSel: 1, options: [
+            SpecOption(id: "spks-reg", name: "黃金比例"),
+            SpecOption(id: "spks-half", name: "半糖微甜")
+        ])
+    ]
+
     static let products: [Product] = [
         // 咖啡
         Product(id: "p1", name: "手沖單品咖啡", desc: "當日精選莊園豆，產區手沖細緻萃取", price: 120, category: "咖啡", emoji: "☕️", groups: coffeeGroups),
         Product(id: "p2", name: "鮮奶拿鐵", desc: "濃縮與鮮奶的圓潤組合", price: 85, category: "咖啡", emoji: "🥛", groups: latteGroups),
         Product(id: "p6", name: "經典美式", desc: "精選深焙綜合豆，醇厚堅果回甘", price: 75, category: "咖啡", emoji: "☕️", groups: coffeeGroups),
         Product(id: "p7", name: "焦糖瑪奇朵", desc: "綿密奶泡佐以香甜香草與焦糖淋醬", price: 95, category: "咖啡", emoji: "🧋", groups: latteGroups),
-        Product(id: "p8", name: "西西里檸檬氣泡咖啡", desc: "新鮮檸檬汁遇上義式濃縮與氣泡水，清爽暢快", price: 95, category: "咖啡", emoji: "🍋"),
+        Product(id: "p8", name: "西西里檸檬氣泡咖啡", desc: "新鮮檸檬汁遇上義式濃縮與氣泡水，清爽暢快", price: 95, category: "咖啡", emoji: "🍋", groups: sparklingGroups),
         Product(id: "p9", name: "燕麥生椰拿鐵", desc: "天然生椰乳與燕麥奶完美融合，濃郁絲滑", price: 105, category: "咖啡", emoji: "🥥", groups: latteGroups),
+        Product(id: "p26", name: "冰滴冷萃咖啡", desc: "12小時低溫緩慢萃取，口感純淨滑順帶有酒香與黑巧克力微韻", price: 110, category: "咖啡", emoji: "🧊", groups: coffeeGroups),
+        Product(id: "p27", name: "經典摩卡咖啡", desc: "法芙娜深黑可可遇上濃縮咖啡與綿密奶泡，微苦香甜", price: 100, category: "咖啡", emoji: "☕️", groups: latteGroups),
+        Product(id: "p28", name: "卡布奇諾", desc: "黃金比例義式濃縮與厚實細密奶泡，散發淡淡肉桂香", price: 85, category: "咖啡", emoji: "☕️", groups: latteGroups),
+        Product(id: "p29", name: "澳白咖啡 Flat White", desc: "雙份精萃濃縮咖啡搭配極細緻微奶泡，咖啡風味更加濃烈純粹", price: 90, category: "咖啡", emoji: "☕️", groups: latteGroups),
+        Product(id: "p30", name: "髒咖啡 Dirty", desc: "冰涼香醇特調鮮乳直落熱濃縮，冷熱交織雙重層次（限店內飲用）", price: 95, category: "咖啡", emoji: "🥛", orderLimit: 5),
+        Product(id: "p31", name: "桂花蜂蜜拿鐵", desc: "在地小農天然桂花蜜融入香醇拿鐵，入口花香芬芳甘甜", price: 105, category: "咖啡", emoji: "🍯", groups: latteGroups),
+        Product(id: "p32", name: "榛果香草拿鐵", desc: "炒香堅果香氣與天然香草風味，溫暖圓潤", price: 95, category: "咖啡", emoji: "🌰", groups: latteGroups),
 
         // 茶飲特調
         Product(id: "p10", name: "日月潭紅玉紅茶", desc: "台灣在地台茶18號，自帶薄荷與肉桂蜜香", price: 65, category: "茶飲特調", emoji: "🫖", groups: teaGroups),
         Product(id: "p11", name: "經典鮮奶茶", desc: "濃韻阿薩姆紅茶搭配純淨鮮乳，香醇順口", price: 80, category: "茶飲特調", emoji: "🧋", groups: teaGroups),
-        Product(id: "p12", name: "白桃烏龍氣泡飲", desc: "香甜蜜桃果泥融入高山烏龍與綿密氣泡", price: 90, category: "茶飲特調", emoji: "🍑"),
+        Product(id: "p12", name: "白桃烏龍氣泡飲", desc: "香甜蜜桃果泥融入高山烏龍與綿密氣泡", price: 90, category: "茶飲特調", emoji: "🍑", groups: sparklingGroups),
         Product(id: "p13", name: "宇治抹茶拿鐵", desc: "日本宇治丸久小山園抹茶，茶香濃厚優雅", price: 100, category: "茶飲特調", emoji: "🍵", groups: latteGroups),
         Product(id: "p14", name: "柚香蜜桃冰茶", desc: "黃金柚子醬佐以慢熬水蜜桃果肉，甘甜解膩", price: 85, category: "茶飲特調", emoji: "🍹", groups: teaGroups),
+        Product(id: "p33", name: "鐵觀音重乳鮮奶茶", desc: "木質重火烘焙鐵觀音茶湯，融匯醇濃小農鮮奶", price: 85, category: "茶飲特調", emoji: "🧋", groups: teaGroups),
+        Product(id: "p34", name: "靜岡焙茶歐蕾", desc: "深焙煎茶溫潤無苦澀，散發堅果與焙火暖香", price: 95, category: "茶飲特調", emoji: "🍵", groups: latteGroups),
+        Product(id: "p35", name: "檸檬冬瓜清爽氣泡飲", desc: "手工冬瓜磚熬煮，佐以屏東鮮榨檸檬汁與豐沛氣泡", price: 75, category: "茶飲特調", emoji: "🍋", groups: sparklingGroups),
+        Product(id: "p36", name: "蔓越莓接骨木氣泡飲", desc: "酸甜紅寶石蔓越莓搭配優雅歐洲接骨木花香，晶亮透紅", price: 90, category: "茶飲特調", emoji: "🫐", groups: sparklingGroups),
+        Product(id: "p37", name: "皇家伯爵茶", desc: "斯里蘭卡高山紅茶佐頂級佛手柑精油，優雅迷人", price: 70, category: "茶飲特調", emoji: "🫖", groups: teaGroups),
+        Product(id: "p38", name: "蜂蜜柚子南非國寶茶", desc: "零咖啡因溫和養身茶，搭配韓國黃金柚子與龍眼花蜜", price: 80, category: "茶飲特調", emoji: "🍯", groups: teaGroups),
+        Product(id: "p39", name: "泰式手標厚奶茶", desc: "泰國道地手標茶葉現萃，濃香甜郁煉乳風味", price: 85, category: "茶飲特調", emoji: "🧋", groups: teaGroups),
 
         // 輕食
-        Product(id: "p3", name: "早餐套餐", desc: "主餐＋飲品，多層規格示範", price: 150, category: "輕食", emoji: "🥪", groups: breakfastGroups),
+        Product(id: "p3", name: "早餐套餐", desc: "主餐＋飲品，自由搭配", price: 150, category: "輕食", emoji: "🥪", groups: breakfastGroups),
         Product(id: "p15", name: "燻雞酪梨貝果", desc: "低溫舒肥燻雞胸佐鮮切酪梨片與外酥內韌貝果", price: 120, category: "輕食", emoji: "🥯", groups: bagelGroups),
         Product(id: "p16", name: "牛肉起司可頌堡", desc: "香烤奶油可頌夾入炙燒牛肉片與濃郁切達起司", price: 135, category: "輕食", emoji: "🥐", orderLimit: 5),
         Product(id: "p17", name: "日式厚蛋燒三明治", desc: "柴魚高湯嫩煎厚蛋，甜鹹多汁滑嫩", price: 85, category: "輕食", emoji: "🥪"),
-        Product(id: "p18", name: "義式羅勒松子培根麵", desc: "主廚特製新鮮青醬與厚切香煎培根丁", price: 160, category: "輕食", emoji: "🍝"),
+        Product(id: "p18", name: "義式羅勒松子培根麵", desc: "主廚特製新鮮青醬與厚切香煎培根丁", price: 160, category: "輕食", emoji: "🍝", groups: pastaGroups),
         Product(id: "p19", name: "經典凱薩沙拉", desc: "爽脆羅曼生菜佐帕瑪森起司脆片與酥脆麵包丁", price: 110, category: "輕食", emoji: "🥗"),
+        Product(id: "p40", name: "庫克太太三明治", desc: "吐司夾炙烤火腿與切達起司，焗烤法式白醬佐半熟太陽蛋", price: 130, category: "輕食", emoji: "🍳", groups: toastGroups),
+        Product(id: "p41", name: "煙燻鮭魚酸種開放三明治", desc: "外酥內軟舊金山酸種麵包佐蒔蘿酸奶醬、挪威煙燻鮭魚與酸豆", price: 145, category: "輕食", emoji: "🥪", orderLimit: 4),
+        Product(id: "p42", name: "辣味番茄海鮮墨魚義大利麵", desc: "主廚特製辣味番茄紅醬搭配鮮甜白蝦、透抽與蛤蜊", price: 180, category: "輕食", emoji: "🍝", groups: pastaGroups),
+        Product(id: "p43", name: "松露野菇奶油義大利麵", desc: "義大利頂級黑松露醬、新鮮牛肝菌菇與濃郁帕瑪森奶醬", price: 170, category: "輕食", emoji: "🍝", groups: pastaGroups),
+        Product(id: "p44", name: "炙燒明太子軟法麵包", desc: "博多特級明太子調和日式蛋黃醬，炙烤至焦香酥脆", price: 95, category: "輕食", emoji: "🥖", groups: dessertGroups),
+        Product(id: "p45", name: "經典松露野菇鹹派", desc: "法式手工千層派皮，包裹野菇、洋蔥與濃郁蛋奶松露內餡", price: 110, category: "輕食", emoji: "🥧", groups: dessertGroups),
+        Product(id: "p46", name: "慢烤南瓜藜麥堅果溫沙拉", desc: "香甜栗子南瓜、有機三色藜麥與烘烤堅果佐義大利巴薩米克醋", price: 125, category: "輕食", emoji: "🥗"),
+        Product(id: "p47", name: "酪梨蛋沙拉丹麥吐司", desc: "多層次酥脆丹麥吐司搭配新鮮酪梨塊與香滑蛋沙拉", price: 105, category: "輕食", emoji: "🥑", groups: toastGroups),
 
         // 甜點
         Product(id: "p4", name: "奶油可頌", desc: "現烤酥脆，每單限點 3 個", price: 55, category: "甜點", emoji: "🥐", orderLimit: 3, groups: dessertGroups),
@@ -253,10 +309,22 @@ enum Catalog {
         Product(id: "p21", name: "法式提拉米蘇", desc: "義大利馬斯卡彭乳酪佐咖啡酒手指餅乾", price: 110, category: "甜點", emoji: "🍰", orderLimit: 2),
         Product(id: "p22", name: "黑糖肉桂捲", desc: "手工烘烤濃郁微辛肉桂香，附烘烤酥脆核桃", price: 80, category: "甜點", emoji: "🍥", groups: dessertGroups),
         Product(id: "p23", name: "靜岡抹茶千層蛋糕", desc: "20層細緻薄餅皮夾入濃抹茶香緹鮮奶油", price: 130, category: "甜點", emoji: "🥞"),
+        Product(id: "p48", name: "法式香草可麗露", desc: "蜂蠟銅模烘烤焦香薄脆外殼，內餡濕潤如香草布丁（每人限購4顆）", price: 65, category: "甜點", emoji: "🧁", orderLimit: 4, groups: dessertGroups),
+        Product(id: "p49", name: "焦糖脆糖烤布蕾", desc: "現點現噴火烤焦脆焦糖層，滿滿馬達加斯加香草籽純濃布丁", price: 75, category: "甜點", emoji: "🍮", orderLimit: 4),
+        Product(id: "p50", name: "法芙娜熔岩黑巧克力蛋糕", desc: "70%法芙娜黑巧克力現烤，切開緩緩流出熱騰騰濃郁生巧漿", price: 105, category: "甜點", emoji: "🍫", groups: dessertGroups),
+        Product(id: "p51", name: "伯爵鹽之花奶蓋戚風", desc: "細緻伯爵茶香海綿蛋糕，淋上微鹹法國鹽之花輕盈奶霜", price: 90, category: "甜點", emoji: "🍰", groups: dessertGroups),
+        Product(id: "p52", name: "酥皮焦糖泡芙", desc: "菠蘿酥脆外皮灌入滿滿香草卡士達與手炒微苦焦糖醬", price: 70, category: "甜點", emoji: "🥯", groups: dessertGroups),
+        Product(id: "p53", name: "白桃蜜香生乳捲", desc: "日本中澤純生鮮奶油裹入多汁水蜜桃切片，輕盈不膩口", price: 115, category: "甜點", emoji: "🍰", orderLimit: 3),
+        Product(id: "p54", name: "焦糖蘋果肉桂派", desc: "慢火熬煮肉桂富士蘋果丁，包覆金黃千層酥皮（每日限量）", price: 95, category: "甜點", emoji: "🥧", groups: dessertGroups),
 
         // 季節限定
         Product(id: "p24", name: "草莓鮮奶油戚風", desc: "當季新鮮大湖草莓與蓬鬆柔軟日式戚風", price: 140, category: "季節限定", emoji: "🍓", orderLimit: 2),
-        Product(id: "p25", name: "秋栗蒙布朗", desc: "法國進口栗子泥，層次分明包裹蛋白糖霜", price: 135, category: "季節限定", emoji: "🌰", groups: dessertGroups)
+        Product(id: "p25", name: "秋栗蒙布朗", desc: "法國進口栗子泥，層次分明包裹蛋白糖霜", price: 135, category: "季節限定", emoji: "🌰", groups: dessertGroups),
+        Product(id: "p55", name: "盛夏芒果乳酪帕菲", desc: "屏東枋山愛文芒果、百香果凍與香草生乳酪杯裝盛宴", price: 160, category: "季節限定", emoji: "🥭", orderLimit: 2),
+        Product(id: "p56", name: "櫻花莓果粉紅氣泡特調", desc: "日本鹽漬櫻花萃取液佐覆盆莓果泥與微氣泡，如落櫻般浪漫", price: 100, category: "季節限定", emoji: "🌸", groups: sparklingGroups),
+        Product(id: "p57", name: "靜岡抹茶草莓生巧大福", desc: "手工Q彈麻糬皮、宇治抹茶生巧克力與整顆新鮮草莓", price: 80, category: "季節限定", emoji: "🍡", orderLimit: 3),
+        Product(id: "p58", name: "炙烤黑糖栗子歐蕾", desc: "慢熬栗子泥與小農蒸奶，表面薄脆火炙黑糖焦香", price: 95, category: "季節限定", emoji: "🌰", groups: latteGroups),
+        Product(id: "p59", name: "柚香金桔雪酪氣泡飲", desc: "自製金桔雪酪冰球漂浮於日本柚子氣泡飲中，酸甜沁涼", price: 105, category: "季節限定", emoji: "🍹", groups: sparklingGroups)
     ]
 }
 
@@ -310,6 +378,7 @@ final class AppModel: ObservableObject {
     @Published var dining = "內用"
     @Published var table = "A3"
     @Published var toast: String?
+    @Published var isOrdering = false
     let minSpend = 150
     let products = Catalog.products
 
@@ -354,9 +423,12 @@ final class AppModel: ObservableObject {
 
     /// 回傳錯誤訊息；nil 代表成功
     func add(_ item: CartItem, replacing: UUID?) -> String? {
+        guard isOrdering else {
+            return "目前為純瀏覽模式，請從首頁點擊「開始點餐」"
+        }
         if let lim = item.product.orderLimit,
            qtyInCart(item.product.id, excluding: replacing) + item.qty > lim {
-            return "「\(item.product.name)」每單限點 \(lim) 份（本機模擬驗證）"
+            return "「\(item.product.name)」每單限點 \(lim) 份"
         }
         if let r = replacing, let i = cart.firstIndex(where: { $0.id == r }) {
             cart[i] = item
@@ -404,11 +476,13 @@ final class AppModel: ObservableObject {
                       pickup: pickup, method: method)
         orders.insert(o, at: 0)
         cart = []; promo = nil
+        isOrdering = false
         return o
     }
 
     /// 再次購買：逐項重新檢查商品與規格是否仍可用
     func reorder(_ order: Order) -> String {
+        isOrdering = true
         var added = 0
         var skipped: [String] = []
         for it in order.items {
@@ -441,6 +515,11 @@ struct ContentView: View {
             MenuView().tabItem { Label("菜單", systemImage: "cup.and.saucer") }.tag(1)
             OrdersView().tabItem { Label("訂單", systemImage: "list.bullet.rectangle") }.tag(2)
             ProfileView().tabItem { Label("我的", systemImage: "person") }.tag(3)
+        }
+        .onChange(of: model.tab) { _, newTab in
+            if newTab == 0 {
+                model.isOrdering = false
+            }
         }
         .tint(.caramel)
         .environmentObject(model)
@@ -503,7 +582,10 @@ struct HomeView: View {
                     }
                     .foregroundColor(.espresso).card()
 
-                    Button("開始點餐") { m.tab = 1 }.buttonStyle(CafeButton())
+                    Button("開始點餐") {
+                        m.isOrdering = true
+                        m.tab = 1
+                    }.buttonStyle(CafeButton())
                     Button { askBell = true } label: {
                         Label("呼叫服務鈴", systemImage: "bell")
                             .frame(maxWidth: .infinity, minHeight: 48)
@@ -521,6 +603,9 @@ struct HomeView: View {
             .alert("服務鈴", isPresented: $bellDone) {
                 Button("好") {}
             } message: { Text("已通知店家，請稍後") }
+            .onAppear {
+                m.isOrdering = false
+            }
         }
     }
 }
@@ -542,7 +627,32 @@ struct MenuView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
+            VStack(spacing: 0) {
+                if !m.isOrdering {
+                    HStack(spacing: 8) {
+                        Image(systemName: "eye.fill")
+                            .foregroundColor(.caramel)
+                        Text("目前為純瀏覽模式，不可加入購物車")
+                            .font(.caption.weight(.medium))
+                            .foregroundColor(.espresso)
+                        Spacer()
+                        Button("前往首頁點餐") {
+                            m.tab = 0
+                        }
+                        .font(.caption.weight(.bold))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.caramel)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                    }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 10)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 8)
+                }
                 VStack(spacing: 12) {
                     HStack {
                         Image(systemName: "magnifyingglass").foregroundColor(.subText)
@@ -563,26 +673,34 @@ struct MenuView: View {
                             }
                         }
                     }
-
-                    if list.isEmpty {
-                        EmptyState(icon: "magnifyingglass", title: "找不到商品", hint: "換個關鍵字，或切換分類看看")
-                    }
-                    ForEach(list) { p in
-                        Button { picked = p } label: { ProductRow(p: p) }
-                            .buttonStyle(.plain).disabled(p.soldOut)
-                    }
                 }
                 .padding(.horizontal, 20)
+                .padding(.bottom, 12)
+
+                ScrollView {
+                    LazyVStack(spacing: 12) {
+                        if list.isEmpty {
+                            EmptyState(icon: "magnifyingglass", title: "找不到商品", hint: "換個關鍵字，或切換分類看看")
+                        }
+                        ForEach(list) { p in
+                            Button { picked = p } label: { ProductRow(p: p) }
+                                .buttonStyle(.plain).disabled(p.soldOut)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 4)
+                    .padding(.bottom, 16)
+                }
             }
             .background(Color.cream)
-            .navigationTitle("菜單")
+            .navigationTitle(m.isOrdering ? "菜單" : "菜單（僅供瀏覽）")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button { m.showCart = true } label: { Image(systemName: "bag") }
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                if m.count > 0 {
+                if m.isOrdering && m.count > 0 {
                     Button { m.showCart = true } label: {
                         HStack {
                             Image(systemName: "bag.fill")
@@ -674,8 +792,21 @@ struct ProductSheet: View {
                             .foregroundColor(.espresso).padding(10).frame(maxWidth: .infinity, alignment: .leading)
                             .background(Color.roseBeige).clipShape(RoundedRectangle(cornerRadius: 10))
                     }
-                    Button("\(editing == nil ? "加入購物車" : "更新品項") · \(nt(unit * qty))") { submit() }
-                        .buttonStyle(CafeButton())
+                    if m.isOrdering {
+                        Button("\(editing == nil ? "加入購物車" : "更新品項") · \(nt(unit * qty))") { submit() }
+                            .buttonStyle(CafeButton())
+                    } else {
+                        VStack(spacing: 6) {
+                            Text("菜單僅供瀏覽，請先從首頁「開始點餐」")
+                                .font(.footnote)
+                                .foregroundColor(.subText)
+                            Button("加入購物車（請由首頁開始點餐）") {
+                                dismiss()
+                                m.tab = 0
+                            }
+                            .buttonStyle(CafeButton(enabled: false))
+                        }
+                    }
                 }
                 .padding(.horizontal, 20).padding(.vertical, 10).background(Color.cream)
             }
@@ -743,6 +874,10 @@ struct ProductSheet: View {
     }
 
     func submit() {
+        guard m.isOrdering else {
+            errors = ["目前為純瀏覽模式，請由首頁點擊「開始點餐」"]
+            return
+        }
         let e = Spec.errors(product, sel)
         if !e.isEmpty { errors = e; return }
         let item = CartItem(product: product, selection: sel, picks: Spec.picks(product, sel), qty: qty, note: note)
@@ -834,7 +969,7 @@ struct CartSheet: View {
                             Button("移除") { m.promo = nil; code = ""; promoError = nil }.font(.footnote)
                         }
                     }
-                    Text("示範碼：WELCOME10（9 折）、SAVE50（滿 300 折 50）、OLD2024（已過期）")
+                    Text("優惠碼：WELCOME10（9 折）、SAVE50（滿 300 折 50）、OLD2024（已過期）")
                         .font(.caption).foregroundColor(.subText)
                 }.foregroundColor(.espresso).card()
 
@@ -920,10 +1055,6 @@ struct CheckoutView: View {
             SuccessView(order: o)
         } else {
             Form {
-                Section {
-                    Label("示範流程：不會真的付款、開立發票或送出至店家", systemImage: "info.circle")
-                        .font(.footnote)
-                }
                 Section("取餐") {
                     Picker("取餐方式", selection: $asap) {
                         Text("立即取餐").tag(true); Text("預約取餐").tag(false)
@@ -939,16 +1070,15 @@ struct CheckoutView: View {
                     TextField("姓名", text: $name)
                     TextField("手機（09xxxxxxxx）", text: $phone).keyboardType(.phonePad)
                 }
-                Section {
+                Section("付款") {
                     Picker("付款方式", selection: $method) {
                         ForEach(["LINE Pay", "信用卡", "匯款"], id: \.self) { Text($0).tag($0) }
                     }
                     if method == "匯款" {
                         TextField("匯款帳號末五碼", text: $last5).keyboardType(.numberPad)
                     }
-                    Toggle("示範：模擬付款失敗", isOn: $payFails)
-                } header: { Text("付款（示範）") } footer: { Text("不會收集卡號，也不會真的扣款。") }
-                Section("發票（示範）") {
+                }
+                Section("發票") {
                     Picker("類型", selection: $invType) {
                         ForEach(["個人電子發票", "公司統編", "手機載具", "捐贈愛心碼"], id: \.self) { Text($0).tag($0) }
                     }
@@ -968,7 +1098,7 @@ struct CheckoutView: View {
                         }.foregroundColor(.espresso)
                     }
                     TextField("自訂備註（最多 50 字）", text: $note)
-                        .onChange(of: note) { v in if v.count > 50 { note = String(v.prefix(50)) } }
+                        .onChange(of: note) { _, v in if v.count > 50 { note = String(v.prefix(50)) } }
                 }
                 Section("訂單確認") {
                     LabeledContent("用餐方式", value: m.dining == "內用" ? "內用・桌號 \(m.table)" : "外帶")
@@ -993,7 +1123,7 @@ struct CheckoutView: View {
                         Text(errors.joined(separator: "\n")).font(.footnote)
                             .listRowBackground(Color.roseBeige)
                     }
-                    Button("確認並建立示範訂單") { submit() }
+                    Button("確認並建立訂單") { submit() }
                 }
             }
             .scrollContentBackground(.hidden)
@@ -1040,13 +1170,15 @@ struct SuccessView: View {
             VStack(spacing: 16) {
                 Image(systemName: order.pay == .failed ? "exclamationmark.circle.fill" : "checkmark.circle.fill")
                     .font(.system(size: 60)).foregroundColor(order.pay == .failed ? .caramel : .espresso)
-                Text(order.pay == .failed ? "模擬付款失敗" : "示範訂單已建立").font(.title2.weight(.semibold))
+                Text(order.pay == .failed ? "付款失敗" : "訂單已建立").font(.title2.weight(.semibold))
                 Text(order.number).font(.system(.title3, design: .monospaced))
                 HStack { Badge(text: order.status.rawValue); Badge(text: order.pay.rawValue) }
-                Text("這是模擬訂單，並未送至店家。" + (order.pay == .failed ? "訂單已保留，可在訂單頁查看。" : ""))
-                    .font(.footnote).multilineTextAlignment(.center)
-                    .padding(10).frame(maxWidth: .infinity).background(Color.roseBeige)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                if order.pay == .failed {
+                    Text("訂單已保留，可在訂單頁查看。")
+                        .font(.footnote).multilineTextAlignment(.center)
+                        .padding(10).frame(maxWidth: .infinity).background(Color.roseBeige)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
                 VStack(spacing: 6) {
                     ForEach(order.items) { it in
                         HStack { Text("\(it.product.name) × \(it.qty)"); Spacer(); Text(nt(it.subtotal)) }
@@ -1055,7 +1187,7 @@ struct SuccessView: View {
                     HStack { Text("總計").bold(); Spacer(); Text(nt(order.total)).bold() }
                 }.card()
                 Button("查看訂單") { m.showCart = false; m.tab = 2 }.buttonStyle(CafeButton())
-                Button("繼續點餐") { m.showCart = false; m.tab = 1 }
+                Button("繼續點餐") { m.showCart = false; m.isOrdering = true; m.tab = 1 }
                     .foregroundColor(.espresso).padding(.top, 4)
             }
             .foregroundColor(.espresso).padding(20)
@@ -1073,7 +1205,7 @@ struct OrdersView: View {
             ScrollView {
                 VStack(spacing: 12) {
                     if m.orders.isEmpty {
-                        EmptyState(icon: "list.bullet.rectangle", title: "還沒有訂單", hint: "完成第一筆示範訂單後會出現在這裡")
+                        EmptyState(icon: "list.bullet.rectangle", title: "還沒有訂單", hint: "完成第一筆訂單後會出現在這裡")
                     }
                     ForEach(m.orders.prefix(15)) { o in
                         NavigationLink { OrderDetailView(order: o) } label: {
@@ -1129,8 +1261,7 @@ struct OrderDetailView: View {
                     if order.discount > 0 { HStack { Text("折扣"); Spacer(); Text("-" + nt(order.discount)) } }
                     HStack { Text("總計").bold(); Spacer(); Text(nt(order.total)).bold() }
                 }.card()
-                Text("這是示範訂單，並未送至店家。").font(.caption).foregroundColor(.subText)
-                Button("再次購買") { result = m.reorder(order) }.buttonStyle(CafeButton())
+                Button("再次購買") { m.isOrdering = true; result = m.reorder(order) }.buttonStyle(CafeButton())
             }
             .foregroundColor(.espresso).padding(20)
         }
